@@ -1,0 +1,1 @@
+# Friday7352.github.io
