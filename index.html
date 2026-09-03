@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friday | CS 499 ePortfolio</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+  }
+  header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 24px 32px;
+  }
+  header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 8px;
+  }
+  header p.tagline {
+    color: var(--muted);
+    font-size: 1.15rem;
+    margin: 0 0 24px;
+  }
+  nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover { text-decoration: underline; }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  section h2 {
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+  }
+  .card p {
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-size: 0.95rem;
+  }
+  .status {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: #3d2f0a;
+    color: #d4a72c;
+  }
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  a.repo-link {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  a.repo-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Friday</h1>
+  <p class="tagline">Computer Science &mdash; CS 499 Capstone ePortfolio</p>
+  <p>
+    I build desktop software that's genuinely useful and easy to install and use.
+    This portfolio showcases my growth across software design and engineering,
+    algorithms and data structures, and databases through enhancements to a
+    real, independently built application.
+  </p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#artifact">Artifact</a>
+  <a href="#software-design">Software Design &amp; Engineering</a>
+  <a href="#algorithms">Algorithms &amp; Data Structures</a>
+  <a href="#databases">Databases</a>
+  <a href="#code-review">Code Review</a>
+</nav>
+
+<main>
+
+  <section id="about">
+    <h2>Professional Self-Assessment</h2>
+    <p><em>Coming soon &mdash; this section will introduce my skills, goals, and how this ePortfolio
+    demonstrates my readiness for a career in desktop application software engineering.</em></p>
+  </section>
+
+  <section id="artifact">
+    <h2>The Artifact: Clearspace</h2>
+    <p>
+      Clearspace is a Windows desktop file-manager application I designed and built independently,
+      intended as a faster, more comfortable replacement for File Explorer. It serves as the single
+      artifact enhanced across all three capstone categories below.
+    </p>
+    <p>
+      <a class="repo-link" href="https://github.com/Friday7352" target="_blank" rel="noopener">
+        View the Clearspace repository on GitHub &rarr;
+      </a>
+    </p>
+  </section>
+
+  <section id="software-design">
+    <h2>Software Design &amp; Engineering</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="status">In progress</span>
+        <h3>File Locking</h3>
+        <p>
+          Password-based file encryption using envelope encryption (AES-256-GCM, PBKDF2), so a
+          locked file's contents are unreadable outside the app rather than merely hidden.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="algorithms">
+    <h2>Algorithms &amp; Data Structures</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="status">In progress</span>
+        <h3>Disk Usage Visualizer</h3>
+        <p>
+          A WinDirStat-style treemap view built on recursive size aggregation and a squarified
+          layout algorithm over Clearspace's existing file index.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="databases">
+    <h2>Databases</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="status">In progress</span>
+        <h3>SQLite Migration</h3>
+        <p>
+          Migrating tag and file-lock metadata from flat JSON storage into a normalized,
+          indexed SQLite database with parameterized queries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="code-review">
+    <h2>Code Review</h2>
+    <p><em>Video coming in Module Two &mdash; link will be added here once recorded.</em></p>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Friday &middot; CS 499 Capstone ePortfolio &middot; Built with GitHub Pages
+</footer>
+
+</body>
+</html>
