@@ -92,6 +92,15 @@
     background: #3d2f0a;
     color: #d4a72c;
   }
+  .status.complete {
+    background: #163d2a;
+    color: #3fb950;
+  }
+  .artifact-links {
+    margin: 14px 0 0;
+    padding-left: 18px;
+  }
+  .artifact-links li { margin: 6px 0; }
   footer {
     max-width: 900px;
     margin: 0 auto;
@@ -155,12 +164,27 @@
     <h2>Software Design &amp; Engineering</h2>
     <div class="cards">
       <div class="card">
-        <span class="status">In progress</span>
-        <h3>File Locking</h3>
+        <span class="status complete">Completed</span>
+        <h3>Clearspace Reliability and Architecture Enhancement</h3>
         <p>
-          Password-based file encryption using envelope encryption (AES-256-GCM, PBKDF2), so a
-          locked file's contents are unreadable outside the app rather than merely hidden.
+          I improved Clearspace, a Windows file manager written in C# and WPF, by separating
+          search, navigation, and sidebar responsibilities into focused components. I also
+          replaced Boolean file-operation results with explicit success, cancellation, and
+          failure outcomes so the interface can give accurate feedback after copy, move, rename,
+          and delete operations.
         </p>
+        <p>
+          The enhancement includes 87 passing Release tests covering cancellation, duplicate
+          removal, tag persistence, indexing edge cases, and file-operation outcomes. The
+          artifacts below show the completed narrative, implementation notes, and a direct
+          comparison between the original and enhanced source.
+        </p>
+        <ul class="artifact-links">
+          <li><a class="repo-link" href="assets/software-design/Payton_Castle_CS499_Milestone_Two_Narrative.docx">Download the enhancement narrative (DOCX)</a></li>
+          <li><a class="repo-link" href="https://github.com/Friday7352/Clearspace/blob/ArtifactOne/docs/CS499-Module-Two-Coding.md" target="_blank" rel="noopener">Read the technical enhancement notes &rarr;</a></li>
+          <li><a class="repo-link" href="https://github.com/Friday7352/Clearspace/tree/before-enhancements" target="_blank" rel="noopener">View the original artifact &rarr;</a></li>
+          <li><a class="repo-link" href="https://github.com/Friday7352/Clearspace/tree/ArtifactOne" target="_blank" rel="noopener">View the enhanced artifact &rarr;</a></li>
+        </ul>
       </div>
     </div>
   </section>
