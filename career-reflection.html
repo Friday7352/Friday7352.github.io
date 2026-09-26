@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Reflection and Status Checkpoints | Payton</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+  }
+  header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 24px 32px;
+  }
+  header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 8px;
+  }
+  header p.tagline {
+    color: var(--muted);
+    font-size: 1.15rem;
+    margin: 0 0 24px;
+  }
+  nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover { text-decoration: underline; }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  section h2 {
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+  }
+  .card p {
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-size: 0.95rem;
+  }
+  .status {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: #3d2f0a;
+    color: #d4a72c;
+  }
+  .status.complete {
+    background: #163d2a;
+    color: #3fb950;
+  }
+  .artifact-links {
+    margin: 14px 0 0;
+    padding-left: 18px;
+  }
+  .artifact-links li { margin: 6px 0; }
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  a.repo-link {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  a.repo-link:hover { text-decoration: underline; }
+
+main a, header a { color: var(--accent); }
+.table-scroll { overflow-x: auto; margin: 20px 0 32px; }
+table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: .9rem; }
+caption { text-align: left; color: var(--muted); margin-bottom: 12px; }
+th, td { border: 1px solid var(--border); padding: 12px; text-align: left; vertical-align: top; }
+th { background: var(--panel); }
+tbody tr:nth-child(even) td { background: var(--panel); }
+main h2 { margin-top: 32px; }
+@media(max-width: 600px) { header { padding-top: 32px; } header h1 { font-size: 1.9rem; } }
+</style></head><body><header>
+<a href="index.html#journals">&larr; Back to ePortfolio</a>
+<h1>Career Reflection and Status Checkpoints</h1>
+<p class="tagline">Payton Castle &middot; CS 499 &middot; September 26, 2026</p>
+<p><a href="assets/journals/Payton_Castle_Module_3_Journal_Updated.docx">Download this journal as a Word document</a></p>
+</header><main><h2>Career Plans</h2>
+<p>When I started the Computer Science program, I thought it would be cool to make software and games. That is still the general direction I want to pursue. I have not settled on one specific role, but I am still interested in creating applications and games that people can use. Working on Clearspace has helped confirm that interest and given me a practical project to keep improving.</p>
+<h2>How My Thinking Has Evolved</h2>
+<p>My original interest was mostly in the idea of making something. Through my coursework and Clearspace, I have started to see more of what it takes to make software useful and dependable. For example, adding a disk usage viewer also meant dealing with slow performance, missing results in deep folders, and confusing indexing feedback. These experiences have made me think more about testing, usability, and how the application behaves with large amounts of data. My overall career direction has stayed similar, but I now have a clearer picture of the work involved.</p>
+<h2>Career Research and Further Education</h2>
+<p>I have not really explored specific jobs, certifications, or graduate programs yet, so career research has not had much influence on my plans so far. I am still exploring what direction would fit me best. A useful next step would be to compare software development and game development positions, look at the skills they require, and see how my projects relate to those expectations. I have not made a decision about an advanced degree or certification after my undergraduate degree.</p>
+<h2>Course Outcomes and Remaining Work</h2>
+<p>So far, my strongest evidence is in sound computing practices, professional communication, and algorithmic problem solving. For Artifact 1, I separated search, navigation, sidebar, and file-operation responsibilities and improved success, cancellation, and failure feedback. For Artifact 2, I removed arbitrary traversal-depth limits, added efficient bottom-up folder-size calculations, improved per-drive index recovery, and reused cached layouts. The latest full Release test run for that work passed 158 tests. The narrative and indexing explanations also help communicate the reasons for these decisions and their limitations.</p>
+<p>Validation, safe handling of folder links, and clearer error reporting support progress toward the security outcome. I still need to complete the database enhancement, gather stronger evidence for collaboration, and refine the final ePortfolio using instructor feedback. The database plan is to move tag storage from JSON to SQLite and test migration, constraints, and transactions. Real-drive checks and a review of the outcome mapping remain important before I consider the whole portfolio finished.</p>
+<h2>Status Checkpoints for All Categories</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Artifact status checkpoints"><table><caption>Enhancement status as of September 26, 2026</caption><thead>
+<tr>
+<th scope="col">Checkpoint</th>
+<th scope="col">Software Design and Engineering</th>
+<th scope="col">Algorithms and Data Structures</th>
+<th scope="col">Databases</th>
+</tr>
+</thead><tbody>
+<tr>
+<th scope="row">Name of Artifact Used</th>
+<td>Clearspace file manager in C# and WPF.</td>
+<td>Clearspace file index, search workflow, and disk usage analyzer.</td>
+<td>Clearspace tag storage workflow.</td>
+</tr>
+<tr>
+<th scope="row">Status of Initial Enhancement</th>
+<td>Completed: separated responsibilities, improved operation feedback, and added regression tests.</td>
+<td>Completed: deep traversal, bottom-up folder totals, per-drive index recovery, cached layouts, and clearer indexing feedback.</td>
+<td>Planned: move tag storage from JSON to SQLite.</td>
+</tr>
+<tr>
+<th scope="row">Submission Status</th>
+<td>Technical work and the Module Two narrative are complete. Final package is pending.</td>
+<td>Implementation and Milestone Three Word narrative are complete. Refresh the code package for instructor review.</td>
+<td>Not submitted. Enhancement has not started.</td>
+</tr>
+<tr>
+<th scope="row">Status of Final Enhancement</th>
+<td>In progress: recheck search fixes and finish interface checks.</td>
+<td>Core enhancement complete. Latest full suite: 158 tests passed. Real-drive checks and instructor feedback remain.</td>
+<td>Not started. I will design and test the schema and migration.</td>
+</tr>
+<tr>
+<th scope="row">Uploaded to ePortfolio</th>
+<td>Yes. Published to the ePortfolio with the narrative and source links.</td>
+<td>No. Publish after instructor review and any needed revisions.</td>
+<td>No. Upload after the enhancement and narrative are complete.</td>
+</tr>
+<tr>
+<th scope="row">Status of Finalized ePortfolio</th>
+<td>In progress. The software-design page is published; other categories remain.</td>
+<td>In progress. Algorithm tradeoffs and test evidence are documented; final outcome mapping and portfolio presentation remain.</td>
+<td>Pending. I need a safe migration that keeps existing tag data.</td>
+</tr>
+</tbody></table></div>
+<h2>Feedback Requested</h2>
+<p>I would appreciate feedback on whether Artifact 2 clearly demonstrates algorithmic tradeoffs and whether the tests and narrative provide enough evidence for the algorithms and data structures outcome. I would also welcome guidance on the planned database migration before implementing it.</p></main>
+<footer>&copy; 2026 Payton &middot; CS 499 Capstone ePortfolio</footer></body></html>
