@@ -194,12 +194,33 @@
     <h2>Algorithms &amp; Data Structures</h2>
     <div class="cards">
       <div class="card">
-        <span class="status">In progress</span>
-        <h3>Disk Usage Visualizer</h3>
+        <span class="status complete">Completed</span>
+        <h3>Clearspace Disk Usage and Indexing Enhancement</h3>
         <p>
-          A WinDirStat-style treemap view built on recursive size aggregation and a squarified
-          layout algorithm over Clearspace's existing file index.
+          I enhanced Clearspace with a disk usage analyzer and improved the algorithms behind
+          file discovery, folder-size calculation, and index recovery. Stack and queue traversals
+          replace arbitrary depth limits, while a bottom-up pass calculates folder totals in
+          O(n) time using indexed parent relationships.
         </p>
+        <p>
+          Compact arrays, cached geometry, and subtree ranges reduce repeated layout work and
+          let the viewer skip off-screen branches. Per-drive recovery keeps healthy indexes
+          available when another drive needs updating. The indexing page explains scan activity,
+          waiting states, storage usage, and the entries actually indexed.
+        </p>
+        <p>
+          The September 23 verification run passed 158 Release tests. Tests cover deep traversal,
+          cancellation, cache replacement, concurrent updates, layout properties, and dense scenes.
+          The narrative discusses memory and responsiveness tradeoffs, learning, and limitations;
+          these tests do not guarantee smooth performance on every drive.
+        </p>
+        <ul class="artifact-links">
+          <li><a class="repo-link" href="assets/algorithms/Payton_Castle_CS499_Milestone_Three_Narrative.docx">Download the enhancement narrative (DOCX)</a></li>
+          <li><a class="repo-link" href="https://github.com/Friday7352/Clearspace/blob/ArtifactTwo/docs/CS499-Algorithms-Disk-Usage.md" target="_blank" rel="noopener">Read the technical enhancement notes &rarr;</a></li>
+          <li><a class="repo-link" href="https://github.com/Friday7352/Clearspace/tree/03a7b023e24306a503c14177500ed0681d610181" target="_blank" rel="noopener">View the original artifact after Artifact 1 &rarr;</a></li>
+          <li><a class="repo-link" href="https://github.com/Friday7352/Clearspace/tree/ArtifactTwo" target="_blank" rel="noopener">View the enhanced artifact &rarr;</a></li>
+          <li><a class="repo-link" href="https://github.com/Friday7352/Clearspace/compare/03a7b023e24306a503c14177500ed0681d610181...ArtifactTwo" target="_blank" rel="noopener">Compare original and enhanced code &rarr;</a></li>
+        </ul>
       </div>
     </div>
   </section>
