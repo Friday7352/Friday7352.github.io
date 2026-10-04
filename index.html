@@ -229,12 +229,44 @@
     <h2>Databases</h2>
     <div class="cards">
       <div class="card">
-        <span class="status">In progress</span>
-        <h3>SQLite Migration</h3>
+        <span class="status complete">Completed</span>
+        <h3>Clearspace SQLite Storage and File Protection</h3>
         <p>
-          Migrating tag and file-lock metadata from flat JSON storage into a normalized,
-          indexed SQLite database with parameterized queries.
+          I replaced Clearspace's JSON tag storage with a relational SQLite database.
+          Tags, paths, and their assignments use primary keys, foreign keys, and indexes
+          to keep relationships consistent and support efficient lookups. Parameterized
+          queries treat names and paths as data, and transactions save bulk changes
+          together or roll them back together. A first-run migration retains the original JSON.
         </p>
+        <p>
+          I also added password-protected files using AES-256-GCM encryption and
+          database records for password verification and lock state. Each encrypted
+          file carries its protected recovery header, allowing it to be unlocked with
+          its password after a rename or loss of the local database. The database
+          stores neither plaintext passwords nor unwrapped file keys.
+        </p>
+        <p>
+          The October 1 Milestone Four verification passed 251 Release tests covering
+          migration, constraints, rollback, persistence, wrong passwords, tampering,
+          and failures around file replacement. A separate dialog check confirmed
+          that unlocking restored the original bytes. This portfolio presents that
+          verified submission snapshot; later application changes are outside this package.
+        </p>
+        <p>
+          The enhancement demonstrates Course Outcomes 3, 4, and 5 through design
+          tradeoffs, established computing tools, and a security mindset. The narrative
+          explains learning and limitations, including the 64 MiB per-file limit,
+          local NTFS requirement, and the separate filesystem and database commits.
+        </p>
+        <ul class="artifact-links">
+          <li><a class="repo-link" href="artifact-three.html">Read the database enhancement narrative &rarr;</a></li>
+          <li><a class="repo-link" href="assets/databases/Payton_Castle_CS499_Milestone_Four_Narrative.docx">Download the enhancement narrative (DOCX)</a></li>
+          <li><a class="repo-link" href="assets/databases/Payton_Castle_CS499_Milestone_Four_Code.zip">Download original and enhanced source with evidence (ZIP)</a></li>
+          <li><a class="repo-link" href="assets/databases/CS499-Artifact-Three-Databases.md">Read the SQLite implementation notes (Markdown)</a></li>
+          <li><a class="repo-link" href="assets/databases/CS499-File-Locking.md">Read the file-protection implementation notes (Markdown)</a></li>
+          <li><a class="repo-link" href="assets/databases/milestone-four.trx">Download the 251-test verification report (TRX)</a></li>
+          <li><a class="repo-link" href="https://github.com/Friday7352/Clearspace/tree/d810ca8304ae7294a80d7fc49777e4995e48435a" target="_blank" rel="noopener">View the original artifact after Artifact 2 &rarr;</a></li>
+        </ul>
       </div>
     </div>
   </section>

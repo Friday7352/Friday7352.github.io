@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artifact 3 — Databases | Payton's CS 499 ePortfolio</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+  }
+  header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 24px 32px;
+  }
+  header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 8px;
+  }
+  header p.tagline {
+    color: var(--muted);
+    font-size: 1.15rem;
+    margin: 0 0 24px;
+  }
+  nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover { text-decoration: underline; }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  section h2 {
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+  }
+  .card p {
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-size: 0.95rem;
+  }
+  .status {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: #3d2f0a;
+    color: #d4a72c;
+  }
+  .status.complete {
+    background: #163d2a;
+    color: #3fb950;
+  }
+  .artifact-links {
+    margin: 14px 0 0;
+    padding-left: 18px;
+  }
+  .artifact-links li { margin: 6px 0; }
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  a.repo-link {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  a.repo-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<header>
+<h1>Clearspace Database Enhancement</h1>
+<p class="tagline">Artifact 3 — Databases · CS 499 Milestone Four</p>
+<p>This narrative accompanies the October 1, 2026 submission snapshot, with original and enhanced source and verification evidence.</p>
+</header>
+<nav aria-label="Artifact navigation">
+<a href="index.html#databases">Back to the portfolio</a>
+<a href="assets/databases/Payton_Castle_CS499_Milestone_Four_Narrative.docx">Download narrative (DOCX)</a>
+<a href="assets/databases/Payton_Castle_CS499_Milestone_Four_Code.zip">Download source and evidence (ZIP)</a>
+</nav>
+<main><article>
+<p>Payton Castle | CS 499 Milestone Four | October 1, 2026</p>
+<h2>Artifact background</h2>
+<p>For this milestone, I enhanced Clearspace with SQLite storage for tags and password-protected files. I created Clearspace in August 2026 as a personal Windows file-manager project using C# and Windows Presentation Foundation. My Module One plan records instructor approval to use the project. Clearspace supports file navigation, search, tags, and file operations. This submission includes the source before the database enhancement and the enhanced application, together with test evidence.</p>
+<h2>Why I selected this artifact and how it improved</h2>
+<p>I selected Clearspace because its stored metadata affects a real user workflow. Previously, tag definitions and assignments were saved in one JSON document. Each change rewrote the document, and the application maintained relationships itself. Moving that data into SQLite let me demonstrate relational design, indexed queries, and transactions within an application I could use and test.</p>
+<p>The database separates Tags, Paths, and PathTags. Primary keys prevent duplicate assignments, foreign keys prevent orphaned references, and an index supports finding paths by tag. Bulk changes commit together or roll back together. The first-run migration imports the existing JSON transactionally and retains the original file. The code reports invalid input instead of silently replacing a user&#39;s metadata. Tag lookups also use an in-memory snapshot so displaying many results does not require a database query for each file.</p>
+<p>The enhancement now includes LockSettings and LockedFiles. LockSettings stores a salted master-password verifier. LockedFiles stores paths, file identifiers, operation states, and a versioned header containing wrapped keys and authentication information. Schema version 2 adds these tables without discarding existing tags. Parameterized statements keep tag names and file paths separate from SQL instructions.</p>
+<p>The file-lock feature makes this storage useful. A user can right-click a file, enter a password, and encrypt its contents. Each file receives a random AES-256-GCM data key, protected by a password-derived key. Password derivation uses PBKDF2-HMAC-SHA256 with a random salt and 600,000 iterations. This follows the planned use of established cryptographic tools and the documented requirements for GCM nonces and password derivation (Microsoft, n.d.; OWASP Foundation, n.d.). The database never stores a plaintext password or unwrapped file key. The file also carries its protected header so a rename or loss of the local database does not make recovery depend on the old path record.</p>
+<h2>Course outcomes and updates to my plan</h2>
+<p>My Module One database plan selected Outcomes 4, 5, and 3. Outcome 4 concerned using established computing tools to deliver useful software. SQLite, explicit schema upgrades, .NET cryptography, and automated tests provide evidence for that outcome. The completed work replaces the tag-storage approach and implements the planned lock-metadata and password-verifier storage.</p>
+<p>For Outcome 5, I addressed specific threats and failure cases. Bound SQL parameters prevent user values from becoming query instructions. Authenticated encryption rejects wrong passwords and changed ciphertext. The service clears its plaintext and key buffers after use, and temporary files receive restricted Windows permissions. Tests exercise malformed headers, database failures, and interrupted operations. These measures demonstrate progress toward a security mindset; they do not establish that the application has undergone an independent security audit.</p>
+<p>Outcome 3 concerns design tradeoffs. SQLite adds schema and migration complexity but provides constraints and transactions. Caching reduces repeated database work while requiring refresh rules. Duplicating protected recovery metadata in the encrypted file uses a small amount of extra space but removes dependence on a particular database or filename. Limiting the first implementation to files up to 64 MiB bounds the memory required to authenticate an entire file before replacing it.</p>
+<p>The initial September 29 implementation covered only tags. Revisiting Module One showed that file locking was originally planned under software engineering and its metadata under databases. I have now included both in this milestone. The first version supports one writable local NTFS file at a time; folders, links, cloud placeholders, and files with additional data streams are excluded. These limits narrow the original idea of locking any file and are stated for instructor review. The narrative and technical notes also support Outcome 2. Evidence for Outcome 1 still depends on documenting how I use instructor or peer feedback; automated checks alone do not demonstrate collaboration.</p>
+<h2>Reflection on learning and challenges</h2>
+<p>The most useful lesson was that successful encryption is only one part of preserving a user&#39;s files. A database transaction cannot also commit a Windows file replacement. The implementation therefore records recovery metadata first, prepares and verifies a temporary file, replaces the target, and then updates its final database state. The encrypted file&#39;s header remains usable if the last database update fails. This required thinking about what remains on disk at each failure point.</p>
+<p>Migration also required preserving behavior. The application compared Unicode paths without case sensitivity, so the database registers a matching collation. Tests cover old data, duplicate assignments, rollback, and concurrent access. The schema upgrade adds lock tables without importing the JSON again or replacing existing tag data.</p>
+<p>The full Release suite passed 251 tests on October 1, 2026. A separate check exercised the actual password-dialog buttons with disposable files, including a wrong-password attempt, and confirmed that unlocking restored the original contents. These checks strengthened the evidence beyond compilation. They also clarified the limits: injected interruptions do not reproduce a physical power loss, and encryption does not erase existing backups or cached copies. A crash during unlock preparation can leave a temporary plaintext file restricted to the current Windows user and SYSTEM. Those boundaries are documented so the portfolio explains what was verified and what still requires further work.</p>
+<h2>References</h2>
+<p>Microsoft. (n.d.). AesGcm.Encrypt method. Microsoft Learn. https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.aesgcm.encrypt?view=net-10.0</p>
+<p>OWASP Foundation. (n.d.). Password storage cheat sheet. OWASP Cheat Sheet Series. https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html</p>
+</article></main>
+<footer>&copy; 2026 Payton · CS 499 Capstone ePortfolio</footer>
+</body>
+</html>
