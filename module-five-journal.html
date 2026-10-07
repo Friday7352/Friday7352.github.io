@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Disruptive Technologies | Payton Castle</title><style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+  }
+  header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 24px 32px;
+  }
+  header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 8px;
+  }
+  header p.tagline {
+    color: var(--muted);
+    font-size: 1.15rem;
+    margin: 0 0 24px;
+  }
+  nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover { text-decoration: underline; }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  section h2 {
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+  }
+  .card p {
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-size: 0.95rem;
+  }
+  .status {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: #3d2f0a;
+    color: #d4a72c;
+  }
+  .status.complete {
+    background: #163d2a;
+    color: #3fb950;
+  }
+  .artifact-links {
+    margin: 14px 0 0;
+    padding-left: 18px;
+  }
+  .artifact-links li { margin: 6px 0; }
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  a.repo-link {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  a.repo-link:hover { text-decoration: underline; }
+
+main a, header a { color: var(--accent); }
+.table-scroll { overflow-x: auto; margin: 20px 0 32px; }
+table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: .9rem; }
+caption { text-align: left; color: var(--muted); margin-bottom: 12px; }
+th, td { border: 1px solid var(--border); padding: 12px; text-align: left; vertical-align: top; }
+th { background: var(--panel); }
+tbody tr:nth-child(even) td { background: var(--panel); }
+main h2 { margin-top: 32px; }
+@media(max-width: 600px) { header { padding-top: 32px; } header h1 { font-size: 1.9rem; } }
+</style></head><body><header><a href="index.html#journals">Back to ePortfolio</a><h1>Disruptive Technologies and Status Checkpoints</h1><p>Payton Castle · CS 499 · October 4, 2026</p></header><main><h2>Technologies I Chose</h2><p>I chose generative AI for software development and extended reality (XR), which includes virtual reality and augmented reality. Both are game changers because they change how software is created or how people interact with it. They also connect to the software and games I want to build.</p><h2>Identification and Description of Each Technology</h2><p>Generative AI creates content, including code, from prompts and context. AI coding tools can suggest implementations, explain existing code, and assist with reviews. GitHub Copilot is one example (GitHub, n.d.). This breaks the older pattern in which developers manually wrote most implementation details and creates a trend toward AI-assisted development. Developers still need to decide whether the output is correct and suitable.</p><p>XR combines immersive virtual environments with digital content placed in the physical world. VR replaces the view with a simulated environment, while AR adds digital objects to the real one. XR breaks the screen-and-mouse interaction pattern by using spatial views and tracked movement. It has encouraged immersive games, simulations, and shared environments. OpenXR provides a common API across XR devices, reducing the need for separate device-specific integrations (Khronos Group, n.d.).</p><h2>Likely Impacts on Computer Science</h2><p>AI-assisted development changes the industry workflow by making code generation and automated review part of everyday development. I expect more attention to requirements, architecture, testing, and security as developers evaluate generated changes. Faster first drafts can help, but incorrect output creates extra review work. The tests I wrote for Clearspace show why checking behavior matters regardless of how code is produced.</p><p>XR increases the need for real-time graphics, spatial input, accessible interaction, and efficient networking. Developers must balance image quality with frame time and user comfort. Shared APIs can make applications easier to move between devices. My work on Clearspace performance has given me practice with responsiveness and resource tradeoffs, although immersive applications would require additional graphics and interaction skills.</p><h2>Impacts on Humans Communities and the World</h2><p>AI coding tools could help individuals and small teams build useful software sooner and make programming easier to approach. Communities could benefit from tools tailored to local needs. However, mistakes, biased output, and insecure code can affect many users when software is distributed. Workers may spend more time reviewing automated work, and people entering the field will still need opportunities to build their own problem-solving skills.</p><p>XR could support remote social interaction, immersive education, and training where practicing in the real world is expensive or dangerous. These uses may connect people across distance and give communities new ways to share experiences. Hardware cost, motion sickness, and accessibility barriers can exclude users. Tracking data and harassment in shared environments also require careful privacy and moderation choices.</p><h2>Likely Impacts on My Career</h2><p>Both technologies fit my goal of building software and games. I expect AI tools to be part of my development workflow, so I need to understand their suggestions, test changes, and protect user data. Clearspace gave me practice with validation, regression testing, and explaining technical limits. I want to use AI assistance while continuing to develop those skills.</p><p>XR interests me because I build VRChat worlds as a hobby, and the C# I use in Clearspace carries over to Unity. Working with XR would push me to learn more about 3D interaction and performance. Comparing software and game development roles will help me decide which skills to develop next.</p><h2>Course Outcomes Achieved and Remaining</h2><p>I have demonstrated Outcome 2 through the enhancement narratives and technical explanations for different audiences. Outcome 3 is supported by my algorithm choices and tradeoffs: deep traversal, bottom-up folder totals, cached layouts, and per-drive index recovery. The Artifact 2 verification passed 158 Release tests. Outcome 4 is supported by using C#, WPF, SQLite, and automated tests to deliver working enhancements across all three categories.</p><p>I have also demonstrated Outcome 5 through parameterized database queries, input validation, transactions, and password-based file protection. Artifact 3 moved tag storage from JSON to SQLite while preserving the original JSON during migration. Its October 1 verification passed 251 Release tests. These are results from the milestone snapshots, not a claim about every later change to Clearspace.</p><p>Outcome 1 remains the area where I need stronger evidence. I built Clearspace mainly on my own, so I still need to document how instructor or peer feedback improves the work and supports collaborative decisions. My portfolio now connects the artifacts to the outcomes, but final instructor review and the code-review video remain. Additional real-drive checks would strengthen performance evidence; they are not implied by the automated test counts.</p><h2>Status Checkpoints for All Categories</h2><div class="table-scroll"><table><tr><th>Checkpoint</th><th>Software Design and Engineering</th><th>Algorithms and Data Structures</th><th>Databases</th></tr><tr><th>Name of Artifact Used</th><td>Clearspace file manager in C# and WPF.</td><td>Clearspace file index, search workflow, and disk usage analyzer.</td><td>Clearspace tag storage and file-lock workflow in SQLite.</td></tr><tr><th>Status of Initial Enhancement</th><td>Completed: separated responsibilities, improved operation feedback, and added regression tests.</td><td>Completed: deep traversal, bottom-up folder totals, per-drive index recovery, cached layouts, and clearer indexing feedback.</td><td>Completed: tag storage moved from JSON to SQLite with constraints, indexes, and transactions. First-run migration keeps the original JSON. Password-based file locking added.</td></tr><tr><th>Submission Status</th><td>Packages and narratives prepared; instructor submission status needs confirmation.</td><td>Packages and narratives prepared; instructor submission status needs confirmation.</td><td>Packages and narratives prepared; instructor submission status needs confirmation.</td></tr><tr><th>Status of Final Enhancement</th><td>Core enhancement complete; the portfolio documents architecture and 87 passing milestone tests. Instructor revisions remain if requested.</td><td>Core enhancement complete; 158 passing milestone tests. Real-drive checks would strengthen evidence.</td><td>Core enhancement complete; 251 passing milestone tests. Filesystem and database recovery limits are documented.</td></tr><tr><th>Uploaded to ePortfolio</th><td>Narrative and source links included in the ePortfolio.</td><td>Narrative and source links included in the ePortfolio.</td><td>Narrative and source links included in the ePortfolio.</td></tr><tr><th>Status of Finalized ePortfolio</th><td>Category content and outcome mapping complete. Final portfolio awaits the code-review video and instructor review.</td><td>Category content and outcome mapping complete. Final portfolio awaits the code-review video and instructor review.</td><td>Category content and outcome mapping complete. Final portfolio awaits the code-review video and instructor review.</td></tr></table></div><h2>Feedback Requested</h2><p>Please tell me whether the artifacts and narratives provide sufficient evidence for Outcomes 2 through 5. I would also appreciate guidance on documenting collaboration for Outcome 1. The code-review video will be added when it is uploaded.</p><h2>References</h2><p>GitHub. (n.d.). GitHub Copilot. https://github.com/features/copilot</p><p>Khronos Group. (n.d.). OpenXR. https://www.khronos.org/openxr/</p></main></body></html>
