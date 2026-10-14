@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clearspace Algorithms and Data Structures Enhancement Narrative | Payton</title><style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+  }
+  header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 24px 32px;
+  }
+  header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 8px;
+  }
+  header p.tagline {
+    color: var(--muted);
+    font-size: 1.15rem;
+    margin: 0 0 24px;
+  }
+  nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover { text-decoration: underline; }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  section h2 {
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+  }
+  .card p {
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-size: 0.95rem;
+  }
+  .status {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: #3d2f0a;
+    color: #d4a72c;
+  }
+  .status.complete {
+    background: #163d2a;
+    color: #3fb950;
+  }
+  .artifact-links {
+    margin: 14px 0 0;
+    padding-left: 18px;
+  }
+  .artifact-links li { margin: 6px 0; }
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  a.repo-link {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  a.repo-link:hover { text-decoration: underline; }
+
+main a, header a { color: var(--accent); }
+main h2 { margin-top: 32px; font-size: 1.35rem; }
+.snapshot-note { padding: 4px 20px; background: var(--panel); border-left: 3px solid var(--accent); margin-bottom: 28px; }
+p { overflow-wrap: anywhere; }
+@media(max-width:600px) { header { padding-top:32px; } header h1 { font-size:1.9rem; } }
+</style></head><body><header><a href="index.html#algorithms">&larr; Back to ePortfolio</a>
+<h1>Clearspace Algorithms and Data Structures Enhancement Narrative</h1><p class="tagline">Payton Castle · CS 499 Milestone Three · September 23, 2026</p>
+<p><a href="assets/algorithms/Payton_Castle_CS499_Milestone_Three_Narrative.docx">Download the narrative (Word)</a></p></header>
+<main><h2>Artifact Background</h2><p>For this milestone, I improved how Clearspace handles deep folders and calculates folder sizes. I built Clearspace in August 2026 as a Windows file manager using C# and WPF. It supports browsing, search, tags, and file operations. This work builds on my Artifact 1 changes and focuses on algorithms and data structures: better traversal, a disk usage viewer, and more reliable index recovery.</p><h2>Reason for Selection and Improvements</h2><p>I chose Clearspace because a drive can hold millions of files nested many levels deep, and the app must give correct results without freezing. Before, indexing stopped at 32 folder levels and fallback search stopped at 24, so the same folder could give different results. Now indexing uses a stack and search uses queues, with no depth limits, and background work can be canceled when it is no longer needed. Both handle folder links the same way, which prevents endless loops.</p><p>Folder sizes are now calculated in one bottom-up pass. Each folder&#x27;s total is added to its parent once, which is O(n) instead of O(n × d) for walking up from every file, where d is folder depth. Totals are stored in simple arrays, and the treemap caches its layout and skips off-screen branches. Each drive also tracks its own index health, so one drive missing changes does not block search on the others. A new index also picks up changes made while it was being built. The indexing page now shows entry counts, storage use, scan activity, and why a scan is waiting, so users can see the work happening in the background.</p><h2>Course Outcomes</h2><p>This work shows the outcome of using algorithms to design solutions while weighing tradeoffs. Deeper scans take longer and caches use memory, but results are now complete and faster to repeat. It also shows the use of sound tools and techniques: tests cover deep folders, cancellation, caching, layout, and index updates, and all 158 tests passed. Safe link handling and checked size math reflect a security mindset. These show progress toward the outcomes, not full mastery.</p><p>My focus is still algorithms and data structures. I added cache fixes, per-drive recovery, and clearer indexing feedback because the main changes were not useful without them. The database work is a separate artifact.</p><h2>Reflection on Learning and Challenges</h2><p>My biggest lesson was that fast results still have to be correct. Removing depth limits added work, so cancellation and memory limits mattered more, and caching needed a clear rule for when data was out of date. The disk viewer froze and flickered on crowded folders, and at one point labels moved without their blocks. That taught me the camera, the drawn shapes, and the click areas must all match the same frame, and that I should test while things move, not just on a still screen.</p><p>The indexing page taught me about clear feedback. A percentage based on found folders can drop when more folders turn up, and an empty progress bar did not explain why scanning stopped. Showing the reason, the retry time, and a Scan now button made it clearer. Tests, including a 48-level folder test, made rechecking easy, but they do not prove smooth performance on every drive. Next, I will use instructor feedback and keep testing on real drives.</p><p><a href="index.html#algorithms">Return to Algorithms and Data Structures</a></p></main>
+<footer>&copy; 2026 Payton &middot; CS 499 Capstone ePortfolio</footer></body></html>
