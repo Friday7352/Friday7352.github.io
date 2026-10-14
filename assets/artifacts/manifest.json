@@ -1,0 +1,29 @@
+{
+  "description": "Unmodified artifact archives supplied by Payton Castle",
+  "archives": [
+    {
+      "file": "Clearspace-before-enhancements.zip",
+      "bytes": 155952,
+      "sha256": "a48b9d8f61fb5c971a1d34e5a29abfd3831480386a2cb00cafd32aa567fdcd41",
+      "file_count": 64
+    },
+    {
+      "file": "Clearspace-ArtifactOne.zip",
+      "bytes": 44899277,
+      "sha256": "304f222c12f6254e9c4d43e9d4613e04237d86fd8b92db3bd2f9bcbc097715b6",
+      "file_count": 355
+    },
+    {
+      "file": "Clearspace-ArtifactTwo.zip",
+      "bytes": 62580997,
+      "sha256": "9993f3b5a2fe7ee21713bac4bef045a8621895c84807284b37da6a158c570905",
+      "file_count": 1002
+    },
+    {
+      "file": "Clearspace-ArtifactThree.zip",
+      "bytes": 78850774,
+      "sha256": "fc50b298570c83464d90b7be421299d0c74834198fcaf7835de7c3cf738ebcda",
+      "file_count": 1196
+    }
+  ]
+}
