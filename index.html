@@ -161,9 +161,8 @@
     <p>The capstone brought software engineering, algorithms, and database concepts together in one application. In the software-design enhancement, I separated search coordination, navigation loading, and sidebar state into focused components. I also replaced Boolean file-operation results with explicit success, cancellation, and failure outcomes. This made the components easier to test and allowed the interface to distinguish a canceled operation from an error.</p>
     <p>For Outcome 3, evaluating computing solutions through algorithmic principles and design tradeoffs, I improved file discovery and folder-size calculation. Explicit stacks and queues replaced arbitrary traversal-depth limits. A bottom-up pass calculates folder totals in O(n) time by adding each subtree total to its parent once. Cached layouts reduce repeated work in the disk-usage viewer. These choices also introduce costs: deeper traversal can require more work, and caches need memory limits and rules that prevent stale results. I learned to evaluate completeness and responsiveness together.</p>
     <p>Outcome 4 concerns using established techniques and tools to deliver useful computing solutions. I applied C#, WPF, automated regression tests, and SQLite to Clearspace&#x27;s actual workflows. The database enhancement replaced JSON tag storage with related tables, constraints, indexes, and transactions. The migration retains the original JSON, and bulk changes either commit together or roll back. This work helped me understand how database design supports behavior users depend on, rather than functioning as an isolated technical exercise.</p>
-<!-- CHANGED: CS 320 example from the degree program -->
     <p>My first structured testing experience came in CS 320, where I wrote JUnit tests in Java for Contact, Task, and Appointment services. Each test matched a rule from the requirements: contact IDs had to be unique, task names could not exceed 20 characters, and appointments could not be scheduled in the past. A coverage tool in Eclipse showed that my tests exercised over 80 percent of the code. The more lasting lesson was to try to break my own code instead of assuming it worked, because developers tend to overlook problems in their own work. Clearspace&#x27;s tests for cancellation, wrong passwords, tampering, and failed file replacement apply the same habit to a much larger application.</p>
-        <h3>Security and Professional Responsibility</h3>
+    <h3>Security and Professional Responsibility</h3>
     <p>Outside the capstone, my CompTIA A+ certification and my ongoing Network+ studies ground security in everyday operations. Systems and networks must be configured, maintained, and supported by people, and weaknesses often appear where those routines fail. That perspective shaped how I approached the security work in Clearspace.</p>
     <p>Outcome 5 concerns anticipating vulnerabilities and protecting data and resources. I applied that mindset through parameterized database queries, input validation, safe handling of folder links, and tests for failure cases. The file-protection enhancement uses authenticated encryption and password-derived protection without storing plaintext passwords or unwrapped file keys in the database. Tests cover wrong passwords, tampering, and failures around file replacement.</p>
     <p>I learned to consider recovery as part of security. A database transaction cannot also commit a Windows file replacement, so the database and filesystem can be left in different states after an interruption. Documenting that boundary helped me avoid overstating the protection offered by the feature. The milestone implementation also has explicit limits, including supported local NTFS files and a 64 MiB per-file limit. Passing tests provides evidence for the cases exercised; it does not replace an independent security review.</p>
@@ -174,10 +173,10 @@
   </section>
 
   <section id="outcomes"><h2>Course Outcome Evidence</h2>
-<ul><li><strong>Outcome 1 — Collaborative environments:</strong> My professional IT support work and Unity collaboration provide experience coordinating responsibilities and communicating with contributors. The self-assessment explains this background; Clearspace itself was developed independently.</li>
-<li><strong>Outcome 2 — Professional communication:</strong> The three enhancement narratives explain purpose, implementation choices, verification, and limitations. The portfolio presents these explanations alongside source and evidence.</li>
+<ul><li><strong>Outcome 1 — Collaborative environments:</strong> The self-assessment describes my professional IT support background and a Unity project where I led development and another contributor provided music. Clearspace itself was developed independently.</li>
+<li><strong>Outcome 2 — Professional communication:</strong> The code review and three enhancement narratives explain purpose, implementation choices, verification, and limitations. The self-assessment discusses adapting technical explanations for instructors, developers, and application users.</li>
 <li><strong>Outcome 3 — Algorithmic solutions and tradeoffs:</strong> The algorithms enhancement demonstrates traversal, bottom-up aggregation, layout caching, and memory versus responsiveness tradeoffs. The database narrative also discusses migration and recovery choices.</li>
-<li><strong>Outcome 4 — Computing techniques and tools:</strong> C#, WPF, indexed data structures, SQLite, and regression tests turn the enhancement plans into working features.</li>
+<li><strong>Outcome 4 — Computing techniques and tools:</strong> C#, WPF, indexed data structures, SQLite, and regression tests turn the enhancement plans into working features. The self-assessment also connects this work to CS 320, including JUnit tests for Contact, Task, and Appointment services and reported code coverage over 80 percent.</li>
 <li><strong>Outcome 5 — Security mindset:</strong> Parameterized queries, validation, relational constraints, authenticated encryption, and failure-case tests address threats to metadata and files. Documented limits distinguish verified behavior from further security work.</li></ul></section>
 <section id="artifact">
     <h2>The Artifact: Clearspace</h2>
@@ -319,7 +318,7 @@
     <h2>Code Review</h2>
     <p>The Clearspace code review examines the original application and the planned
     enhancements across software design and engineering, algorithms and data structures,
-    and databases. It is written for peers or a manager, so it explains how the code works and
+    and databases. It is intended for peers or a manager, so it explains how the code works and
     why each enhancement is planned.</p>
     <p><a class="repo-link" href="https://youtu.be/47quO2t3r2U" target="_blank" rel="noopener">Watch my Clearspace code review on YouTube &rarr;</a></p>
     <div class="card">
@@ -334,7 +333,7 @@
       <h3>Written supplement: how the planned enhancements align with the course outcomes</h3>
       <p>This summary accompanies the video and does not replace it.</p>
       <ul class="artifact-links">
-        <li><strong>Outcome 1 &mdash; Collaboration:</strong> the review is addressed to peers or a manager and invites feedback on the plan before the changes are made.</li>
+        <li><strong>Outcome 1 &mdash; Collaboration:</strong> the review communicates an enhancement plan that peers or a manager can evaluate. Clearspace was developed independently; the self-assessment provides separate professional and Unity collaboration experience.</li>
         <li><strong>Outcome 2 &mdash; Communication:</strong> the review explains the existing code and the reasons for each planned change in terms a non-specialist reviewer can follow.</li>
         <li><strong>Outcome 3 &mdash; Algorithms and tradeoffs:</strong> the planned algorithms enhancement addresses the fixed traversal-depth limits in file discovery and search, weighing completeness against responsiveness.</li>
         <li><strong>Outcome 4 &mdash; Techniques and tools:</strong> the plans use C#, WPF, automated tests, and a move from JSON tag storage to a relational SQLite database.</li>
@@ -346,6 +345,7 @@
   <section id="journals">
     <!-- CHANGED: the Module 5 journal block used to sit above this heading, so it appeared under Code Review. Both journals are now cards under one heading. -->
     <h2>Journals and Progress</h2>
+    <p class="journal-context">These dated journals record progress at the time they were written. The self-assessment, artifact sections, and code-review link above show the current portfolio.</p>
     <div class="card">
       <h3>Disruptive Technologies and Status Checkpoints</h3>
       <p>October 4, 2026 &mdash; Generative AI, extended reality, course outcomes, and progress across all three enhancements.</p>
