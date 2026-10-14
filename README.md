@@ -24,3 +24,8 @@ The home page also links the code review video and two journals.
 - `assets/journals/` - the Module 3 and Module 5 journals
 
 The Clearspace source repository is at https://github.com/Friday7352/Clearspace.
+
+<!-- CHANGED: AI assistance disclosure -->
+## AI assistance
+
+I used Claude, an AI assistant from Anthropic, to help organize this portfolio.
